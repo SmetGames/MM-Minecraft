@@ -7,13 +7,13 @@ services:
     container_name: mechanical-mastery
     environment:
       CF_API_KEY: '$2a$10$3iDVGIPkrjqtJTc3eBOKl.OrdzFTGRSClsmL0eElP8nRaqQKZF7pO'
-      CF_CF_PAGE_URL: 'https://www.curseforge.com/minecraft/modpacks/mechanical-mastery/download/4684136'
       CF_SLUG: 'mechanical-mastery'
       EULA: 'TRUE'
       TYPE: 'AUTO_CURSEFORGE'
       VERSION: '1.18.2'
-      MEMORY: '4G'
       ENABLE_ROLLING_LOGS: 'true'
+      MEMORY: ''
+      JVM_XX_OPTS: '-XX:+UseContainerSupport -XX:MaxRAMPercentage=75'
     volumes:
       - ./data:/data
       - ./downloads:/downloads
@@ -21,3 +21,4 @@ services:
       - '25567:25565'
       - '19567:19565'
     restart: always
+    mem_limit: 6g
